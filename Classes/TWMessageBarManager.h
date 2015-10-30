@@ -181,6 +181,19 @@ typedef NS_ENUM(NSInteger, TWMessageBarMessageType) {
 - (void)showMessageWithTitle:(NSString *)title description:(NSString *)description type:(TWMessageBarMessageType)type duration:(CGFloat)duration statusBarStyle:(UIStatusBarStyle)statusBarStyle callback:(void (^)())callback;
 
 /**
+ *  Shows a message with the supplied title, description, type, duration, status bar style and callback block.
+ *
+ *  @param title            Header text in the message view.
+ *  @param description      Description text in the message view.
+ *  @param type             Type dictates color, stroke and icon shown in the message view.
+ *  @param duration         Default duration is 3 seconds, this can be overridden by supplying an optional duration parameter.
+ *  @param statusBarStyle   Applied during the presentation of the message. If not supplied, style will default to UIStatusBarStyleDefault.
+ *  @param tapToDismiss     Default is Yes. To prevent tap to dismiss, set to NO.
+ *  @param callback         Callback block to be executed if a message is tapped.
+ */
+- (void)showMessageWithTitle:(NSString *)title description:(NSString *)description type:(TWMessageBarMessageType)type duration:(CGFloat)duration statusBarStyle:(UIStatusBarStyle)statusBarStyle tapToDismiss:(BOOL)tapToDismiss callback:(void (^)())callback;
+
+/**
  *  Shows a message with the supplied title, description, type, status bar hidden toggle and callback block.
  *
  *  @param title            Header text in the message view.
@@ -202,6 +215,19 @@ typedef NS_ENUM(NSInteger, TWMessageBarMessageType) {
  *  @param callback         Callback block to be executed if a message is tapped.
  */
 - (void)showMessageWithTitle:(NSString *)title description:(NSString *)description type:(TWMessageBarMessageType)type duration:(CGFloat)duration statusBarHidden:(BOOL)statusBarHidden callback:(void (^)())callback;
+
+/**
+ *  Shows a message with the supplied title, description, type, duration, status bar hidden toggle and callback block.
+ *
+ *  @param title            Header text in the message view.
+ *  @param description      Description text in the message view.
+ *  @param type             Type dictates color, stroke and icon shown in the message view.
+ *  @param duration         Default duration is 3 seconds, this can be overridden by supplying an optional duration parameter.
+ *  @param statusBarHidden  Status bars are shown by default. To hide it during the presentation of a message, set to NO.
+ *  @param tapToDismiss     Default is Yes. To prevent tap to dismiss, set to NO.
+ *  @param callback         Callback block to be executed if a message is tapped.
+ */
+- (void)showMessageWithTitle:(NSString *)title description:(NSString *)description type:(TWMessageBarMessageType)type duration:(CGFloat)duration statusBarHidden:(BOOL)statusBarHidden tapToDismiss:(BOOL)tapToDismiss callback:(void (^)())callback;
 
 /**
  *  Hides the topmost message and removes all remaining messages in the queue.
